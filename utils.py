@@ -31,10 +31,10 @@ def fixproj(project_file, bit_target):
     """
     :param bit_target: one of 'Win32' or 'x64'
     """
-    with open(project_file, 'r') as fd:
+    with open(project_file, 'r', encoding='utf-8') as fd:
         content = '\n'.join(line.strip() for line in fd if line.strip())
     content = content.replace('Win32', bit_target).replace('x64', bit_target)
-    with open(project_file, 'w') as fd:
+    with open(project_file, 'w', encoding='utf-8') as fd:
         fd.write(content)
 
 def tar_extract(tar_file, target):
